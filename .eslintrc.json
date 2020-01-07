@@ -3,5 +3,12 @@
     "plugins": ["prettier"],
     "rules": {
         "prettier/prettier": ["error"]
-    }
+    },
+    "object-curly-newline": [
+        "error",
+        {
+            "ImportDeclaration": "never",
+            "ExportDeclaration": "never"
+        }
+    ]
 }
