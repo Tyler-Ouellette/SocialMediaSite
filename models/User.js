@@ -21,6 +21,10 @@ const UserSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
     },
+    isAdmin: {
+        type: Boolean,
+        default: false,
+    },
 });
 
 // eslint-disable-next-line no-multi-assign, no-undef

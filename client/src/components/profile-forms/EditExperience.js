@@ -122,6 +122,7 @@ const EditExperience = ({ editExperience, history, profile: { profile, loading }
                         rows="5"
                         placeholder="Job Description"
                         value={description}
+                        wrap="hard"
                         onChange={e => onChange(e)}
                     />
                 </div>

@@ -23,9 +23,11 @@ const Post = ({ getPost, post: { post, loading }, match }) => {
             <PostItem post={post} key={post._id} showActions={false} />
             <CommentForm postId={post._id} />
             <div className="comments">
-                {post.comments.map(comment => (
-                    <CommentItem key={comment._id} comment={comment} postId={post._id} />
-                ))}
+                {post.comments
+                    .sort((a, b) => (a.date > b.date ? 1 : -1))
+                    .map(comment => (
+                        <CommentItem key={comment._id} comment={comment} postId={post._id} />
+                    ))}
             </div>
         </Fragment>
     );

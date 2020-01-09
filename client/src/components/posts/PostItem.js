@@ -23,7 +23,7 @@ const PostItem = ({
         <div>
             <p className="my-1">{text}</p>
             <p className="post-date">
-                    Posted on <Moment format="MMM DDD YYYY: h:mm a">{date}</Moment>
+                Posted on <Moment format="MMM DDD YYYY: h:mm a">{date}</Moment>
             </p>
 
             <button onClick={() => addLike(_id)} type="button" className="btn btn-light">
@@ -39,7 +39,7 @@ const PostItem = ({
                     </Link>
                 </Fragment>
             )}
-            {!auth.loading && user === auth.user._id && (
+            {!auth.loading && (user === auth.user._id || auth.user.isAdmin === true) && (
                 <button onClick={() => deletePost(_id)} type="button" className="btn btn-danger">
                     <i className="fas fa-times" />
                 </button>

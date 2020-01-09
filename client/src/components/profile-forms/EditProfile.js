@@ -142,6 +142,7 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
                         placeholder="A short bio of yourself"
                         name="bio"
                         value={bio}
+                        wrap="hard"
                         onChange={e => onChange(e)}
                     />
                     <small className="form-text">Tell us a little about yourself</small>

@@ -120,6 +120,7 @@ const EditEducation = ({ editEducation, history, profile: { profile, loading }, 
                         rows="5"
                         placeholder="Program Description"
                         value={description}
+                        wrap="hard"
                         onChange={e => onChange(e)}
                     />
                 </div>
