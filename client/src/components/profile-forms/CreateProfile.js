@@ -129,6 +129,8 @@ const CreateProfile = ({
                     <textarea
                         placeholder="A short bio of yourself"
                         name="bio"
+                        cols="30"
+                        rows="5"
                         value={bio}
                         wrap="hard"
                         onChange={e => onChange(e)}
