@@ -464,10 +464,12 @@ button {
   grid-template-columns: 1fr 4fr;
   grid-gap: 2rem;
   align-items: center;
+  word-break: break-all;
 }
 
 .post > div:first-child {
   text-align: center;
+  word-break: break-all;
 }
 
 .post img {
