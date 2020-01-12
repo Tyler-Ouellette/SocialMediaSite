@@ -6,3 +6,4 @@ node_modules
 variables.env.now
 .DS_Store
 *.log
+now.json
