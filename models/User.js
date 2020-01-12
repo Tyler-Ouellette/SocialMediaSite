@@ -25,6 +25,8 @@ const UserSchema = new mongoose.Schema({
         type: Boolean,
         default: false,
     },
+    resetPasswordToken: String,
+    resetPasswordExpires: Date,
 });
 
 // eslint-disable-next-line no-multi-assign, no-undef

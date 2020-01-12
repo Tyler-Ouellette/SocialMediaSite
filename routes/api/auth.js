@@ -65,4 +65,10 @@ router.post(
     }
 );
 
+
+// @route    POST api/user/reset
+// @desc     Authenticate user & get token
+// @access   Public
+
+
 module.exports = router;
