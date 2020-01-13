@@ -1,0 +1,13 @@
+{
+    "build": {
+        "alias": "tylerouellette.tech",
+        "env": {
+            "NODE_ENV": "@node_env",
+            "DATABASE": "@database",
+            "githubClientId": "@githubclientid",
+            "githubSecret": "@githubsecret",
+            "PORT": "@port",
+            "jwtToken": "@jwttoken"
+        }
+    }
+}
