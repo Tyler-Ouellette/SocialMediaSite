@@ -12,6 +12,7 @@ import {
     FORGOT_PASS,
 } from './types';
 import setAuthToken from '../utils/setAuthToken';
+import User from '../../../models/User';
 
 // Load User
 export const loadUser = () => async dispatch => {
@@ -103,6 +104,23 @@ export const logout = () => dispatch => {
     dispatch({ type: LOGOUT });
 };
 
-export const forgotPass = email => dispatch => {
+export const forgotPass = email => async dispatch => {
+    const user = await User.findOne({ email: email });
+    if (!user) {
+        setAlert('error', 'Invalid Credentials');
+        return;
+    }
+    user.resetPasswordToken = crypto.randomBytes(20).toString('hex');
+    user.resetPasswordExpires = Date.now() + 3600000;
+
+    await user.save();
+
+    const resetURL = `http://${req.headers.host}/account/reset/${user.resetPasswordToken}`;
+    await mail.send({
+        user,
+        subject: 'Password Reset Link',
+        resetURL,
+        filename: 'password-reset',
+    });
     dispatch({ type: FORGOT_PASS });
 };
