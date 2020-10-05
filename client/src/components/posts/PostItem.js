@@ -23,7 +23,7 @@ const PostItem = ({
         <div>
             <p className="my-1">{text}</p>
             <p className="post-date">
-                Posted on <Moment format="MMM DDD YYYY: h:mm a">{date}</Moment>
+                Posted on <Moment format="MMM DD YYYY: h:mm a">{date}</Moment>
             </p>
 
             <button onClick={() => addLike(_id)} type="button" className="btn btn-light">
