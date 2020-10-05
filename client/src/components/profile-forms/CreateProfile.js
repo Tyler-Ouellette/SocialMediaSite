@@ -4,52 +4,46 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createProfile, getCurrentProfile } from '../../actions/profile';
 
-const CreateProfile = ({
-	createProfile,
-	getCurrentProfile,
-	profile: { profile, loading },
-	history
-}) => {
-	const [formData, setFormData] = useState({
-		company: '',
-		website: '',
-		location: '',
-		status: '',
-		skills: '',
-		githubusername: '',
-		bio: '',
-		twitter: '',
-		facebook: '',
-		linkedin: '',
-		youtube: '',
-		instagram: ''
-	});
-	const [displaySocialInputs, toggleSocialInputs] = useState(false);
-	const {
-		company,
-		website,
-		location,
-		status,
-		skills,
-		githubusername,
-		bio,
-		twitter,
-		facebook,
-		linkedin,
-		youtube,
-		instagram
-	} = formData;
-	const onChange = e =>
-		setFormData({ ...formData, [e.target.name]: e.target.value });
-	const onSubmit = e => {
-		e.preventDefault();
-		createProfile(formData, history);
-	};
-	useEffect(() => {
-		getCurrentProfile();
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [getCurrentProfile]);
-	return loading && profile === null ? (
+const CreateProfile = ({ createProfile, getCurrentProfile, profile: { profile, loading }, history }) => {
+    const [formData, setFormData] = useState({
+        company: '',
+        website: '',
+        location: '',
+        status: '',
+        skills: '',
+        githubusername: '',
+        bio: '',
+        twitter: '',
+        facebook: '',
+        linkedin: '',
+        youtube: '',
+        instagram: '',
+    });
+    const [displaySocialInputs, toggleSocialInputs] = useState(false);
+    const {
+        company,
+        website,
+        location,
+        status,
+        skills,
+        githubusername,
+        bio,
+        twitter,
+        facebook,
+        linkedin,
+        youtube,
+        instagram,
+    } = formData;
+    const onChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
+    const onSubmit = (e) => {
+        e.preventDefault();
+        createProfile(formData, history);
+    };
+    useEffect(() => {
+        getCurrentProfile();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [getCurrentProfile]);
+    return loading && profile === null ? (
         <Redirect to="/dashboard" />
     ) : (
         <Fragment>
@@ -58,16 +52,17 @@ const CreateProfile = ({
                 <i className="fas fa-user" /> Let's get some information to make your profile stand out
             </p>
             <small>* = required field</small>
-            <form className="form" onSubmit={e => onSubmit(e)}>
+            <form className="form" onSubmit={(e) => onSubmit(e)}>
                 <div className="form-group">
-                    <select name="status" value={status} onChange={e => onChange(e)}>
+                    <select name="status" value={status} onChange={(e) => onChange(e)}>
                         <option value="0">* Select Professional Status</option>
                         <option value="Developer">Developer</option>
                         <option value="Junior Developer">Junior Developer</option>
                         <option value="Senior Developer">Senior Developer</option>
                         <option value="Manager">Manager</option>
-                        <option value="Student">Student</option>
+                        <option value="Consultant">Consultant</option>
                         <option value="Instructor">Instructor or Teacher</option>
+                        <option value="Student">Student</option>
                         <option value="Intern">Intern</option>
                         <option value="Other">Other</option>
                     </select>
@@ -79,7 +74,7 @@ const CreateProfile = ({
                         placeholder="Company"
                         name="company"
                         value={company}
-                        onChange={e => onChange(e)}
+                        onChange={(e) => onChange(e)}
                     />
                     <small className="form-text">Could be your own company or one you work for</small>
                 </div>
@@ -89,7 +84,7 @@ const CreateProfile = ({
                         placeholder="Website"
                         name="website"
                         value={website}
-                        onChange={e => onChange(e)}
+                        onChange={(e) => onChange(e)}
                     />
                     <small className="form-text">Could be your own or a company website</small>
                 </div>
@@ -99,7 +94,7 @@ const CreateProfile = ({
                         placeholder="Location"
                         name="location"
                         value={location}
-                        onChange={e => onChange(e)}
+                        onChange={(e) => onChange(e)}
                     />
                     <small className="form-text">City & state suggested (eg. Boston, MA)</small>
                 </div>
@@ -109,7 +104,7 @@ const CreateProfile = ({
                         placeholder="* Skills"
                         name="skills"
                         value={skills}
-                        onChange={e => onChange(e)}
+                        onChange={(e) => onChange(e)}
                     />
                     <small className="form-text">Please use comma separated values (eg. HTML,CSS,JavaScript,PHP)</small>
                 </div>
@@ -119,7 +114,7 @@ const CreateProfile = ({
                         placeholder="Github Username"
                         name="githubusername"
                         value={githubusername}
-                        onChange={e => onChange(e)}
+                        onChange={(e) => onChange(e)}
                     />
                     <small className="form-text">
                         If you want your latest repos and a Github link, include your username
@@ -133,7 +128,7 @@ const CreateProfile = ({
                         rows="5"
                         value={bio}
                         wrap="hard"
-                        onChange={e => onChange(e)}
+                        onChange={(e) => onChange(e)}
                     />
                     <small className="form-text">Tell us a little about yourself</small>
                 </div>
@@ -156,7 +151,7 @@ const CreateProfile = ({
                                 placeholder="Twitter URL"
                                 name="twitter"
                                 value={twitter}
-                                onChange={e => onChange(e)}
+                                onChange={(e) => onChange(e)}
                             />
                         </div>
 
@@ -167,7 +162,7 @@ const CreateProfile = ({
                                 placeholder="Facebook URL"
                                 name="facebook"
                                 value={facebook}
-                                onChange={e => onChange(e)}
+                                onChange={(e) => onChange(e)}
                             />
                         </div>
 
@@ -178,7 +173,7 @@ const CreateProfile = ({
                                 placeholder="YouTube URL"
                                 name="youtube"
                                 value={youtube}
-                                onChange={e => onChange(e)}
+                                onChange={(e) => onChange(e)}
                             />
                         </div>
 
@@ -189,7 +184,7 @@ const CreateProfile = ({
                                 placeholder="Linkedin URL"
                                 name="linkedin"
                                 value={linkedin}
-                                onChange={e => onChange(e)}
+                                onChange={(e) => onChange(e)}
                             />
                         </div>
 
@@ -200,7 +195,7 @@ const CreateProfile = ({
                                 placeholder="Instagram URL"
                                 name="instagram"
                                 value={instagram}
-                                onChange={e => onChange(e)}
+                                onChange={(e) => onChange(e)}
                             />
                         </div>
                     </Fragment>
@@ -216,13 +211,11 @@ const CreateProfile = ({
 };
 
 CreateProfile.propTypes = {
-	createProfile: PropTypes.func.isRequired,
-	getCurrentProfile: PropTypes.func.isRequired,
-	profile: PropTypes.object.isRequired
+    createProfile: PropTypes.func.isRequired,
+    getCurrentProfile: PropTypes.func.isRequired,
+    profile: PropTypes.object.isRequired,
 };
-const mapStateToProps = state => ({
-	profile: state.profile
+const mapStateToProps = (state) => ({
+    profile: state.profile,
 });
-export default connect(mapStateToProps, { createProfile, getCurrentProfile })(
-	withRouter(CreateProfile)
-);
+export default connect(mapStateToProps, { createProfile, getCurrentProfile })(withRouter(CreateProfile));
