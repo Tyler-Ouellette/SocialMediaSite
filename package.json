@@ -19,7 +19,7 @@
     "dependencies": {
         "@types/dotenv": "^8.2.0",
         "bcryptjs": "^2.4.3",
-        "config": "^3.2.4",
+        "config": "^3.3.6",
         "dotenv": "4.0.0",
         "express": "^4.17.1",
         "express-validator": "^6.2.0",
